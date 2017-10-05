@@ -1,4 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { CartService } from './services/cart.service';
+
+import { ToolbarModule } from 'primeng/primeng';
+import { ButtonModule } from 'primeng/primeng';
+import { SplitButtonModule } from 'primeng/primeng';
 
 @Component({
   selector: 'app-root',
@@ -6,6 +11,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
-  items= ['hi', 'hello'];
+  title = 'Food Bucket';
+  cartBadge = 0;
+  constructor(public cartService: CartService) { }
 }

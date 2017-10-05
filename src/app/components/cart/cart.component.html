@@ -1,3 +1,22 @@
-<p>
-  cart works!
-</p>
+<div class="container-fluid">
+  <div class="tableHeader">
+    <h1>The Cart</h1>
+  </div>
+  <p-dataTable [(value)]="cart" selectionMode="single" [(selection)]="selectedFood" (onRowSelect)="remove($event)">
+    <p-header>Your Food Bucket</p-header>
+    <p-column field="name" header="Name"></p-column>
+    <p-column field="Description" header="Description"></p-column>
+    <p-column field="Price" header="Price"></p-column>
+    <p-column header="Remove from Cart">
+      <ng-template pTemplate>
+        <span>
+          <i class="fa fa-minus-circle"></i>
+        </span>
+      </ng-template>
+    </p-column>
+    <p-footer>Total= {{sum}}
+      <Button class="btn btn-success" (click)="pay()">Proceed to Pay</Button>
+    </p-footer>
+  </p-dataTable>
+  <p-growl [(value)]="msgs" [(life)]="growlTimeout" [style]="{'padding':'20px'}"></p-growl>
+</div>

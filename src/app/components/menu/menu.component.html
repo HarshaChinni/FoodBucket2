@@ -1,3 +1,18 @@
-<p>
-  menu works!
-</p>
+<div class="container-fluid">
+  <div class="tableHeader">
+    <h1>{{dataService.currentMenu}}</h1>
+  </div>
+  <p-dataTable [value]="menuData" selectionMode="single" [(selection)]="selectedFood" (onRowSelect)="addFood($event)">
+    <p-column field="name" header="Name"></p-column>
+    <p-column field="Description" header="Description"></p-column>
+    <p-column field="Price" header="Price"></p-column>
+    <p-column header="Add To Cart">
+      <ng-template pTemplate>
+        <span>
+          <i class="fa fa-cart-plus"></i>
+        </span>
+      </ng-template>
+    </p-column>
+  </p-dataTable>
+  <p-growl [(value)]="msgs" [(life)]="growlTimeout" [style]="{'padding':'20px'}"></p-growl>
+</div>

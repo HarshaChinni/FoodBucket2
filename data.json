@@ -1,0 +1,87 @@
+{
+  "breakfast": [
+    {
+      "name": "Dosa",
+      "Description": "Breakfast Dosa Description",
+      "Price": 40
+    },
+    {
+      "name": "Idli",
+      "Description": "Breakfast Idli Description",
+      "Price": 20
+    },
+    {
+      "name": "Combo",
+      "Description": "Breakfast Combo Description",
+      "Price": 35
+    }
+  ],
+  "lunch": [
+    {
+      "name": "Meal",
+      "Description": "Lunch Meal Description",
+      "Price": 40
+    },
+    {
+      "name": "Rice Combo",
+      "Description": "Lunch Rice Combo Description",
+      "Price": 45
+    },
+    {
+      "name": "North Indian Combo",
+      "Description": "Lunch North Indian Combo Description",
+      "Price": 55
+    }
+  ],
+  "dinner": [
+    {
+      "name": "Dosa",
+      "Description": "Dinner Dosa Description",
+      "Price": 40
+    },
+    {
+      "name": "Roti Combo",
+      "Description": "Dinner Roti Combo Description",
+      "Price": 35
+    },
+    {
+      "name": "Meal",
+      "Description": "Dinner Meal Description",
+      "Price": 45
+    }
+  ],
+  "snacks": [
+    {
+      "name": "Chat",
+      "Description": "Snacks Chat Description",
+      "Price": 20
+    },
+    {
+      "name": "Fried",
+      "Description": "Snacks Fried Description",
+      "Price": 10
+    },
+    {
+      "name": "Burger",
+      "Description": "Snacks Burger Description",
+      "Price": 35
+    }
+  ],
+  "tea": [
+    {
+      "name": "Tea",
+      "Description": "Tea Description",
+      "Price": 10
+    },
+    {
+      "name": "Coffee",
+      "Description": "Coffee Description",
+      "Price": 10
+    },
+    {
+      "name": "Milk",
+      "Description": "Milk Description",
+      "Price": 15
+    }
+  ]
+}
