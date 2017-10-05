@@ -4,6 +4,7 @@
     <div class="toolbarelt">
       <div class="ui-toolbar-group-left">
         <button pButton type="button" label="Menu" icon="fa-plus" routerLink="/nav"></button>
+        <button pButton type="button" label="Dashboard" icon="fa-tachometer" routerLink="/dashboard"></button>
       </div>
     </div>
 
@@ -11,9 +12,6 @@
       <button pButton type="button" icon="fa-home" label='Home' routerLink="/home"></button>
       <button pButton type="button" icon="fa-handshake-o" label='Contact us'></button>
       <button pButton type="button" icon="fa-shopping-cart" label='Cart ({{cartService.cartCount}})' routerLink="/cart"></button>
-      <!-- <sup>
-        <span class="badge">{{cartService.cartCount}}</span>
-      </sup> -->
     </div>
   </p-toolbar>
 </div>

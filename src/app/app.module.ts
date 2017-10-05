@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpModule } from '@angular/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // Prime ng modules
 import { ToolbarModule } from 'primeng/primeng';
@@ -15,8 +16,10 @@ import { DataListModule } from 'primeng/primeng';
 import { Header } from 'primeng/primeng';
 import { Footer } from 'primeng/primeng';
 import { GrowlModule } from 'primeng/primeng';
+import { DropdownModule } from 'primeng/primeng';
+import { InputTextModule } from 'primeng/primeng';
 
-// app comoonents
+// app components
 import { AppComponent } from './app.component';
 import { NavComponent } from './components/nav/nav.component';
 import { MenuComponent } from './components/menu/menu.component';
@@ -27,6 +30,7 @@ import { HomeComponent } from './components/home/home.component';
 // app services
 import { CartService } from './services/cart.service';
 import { DataService } from './services/data.service';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 const routeConfig: Routes = [
   {
@@ -36,6 +40,10 @@ const routeConfig: Routes = [
   {
     path: 'home',
     component: HomeComponent
+  },
+  {
+    path: 'dashboard',
+    component: DashboardComponent
   },
   {
     path: 'contact',
@@ -63,10 +71,12 @@ const routeConfig: Routes = [
     MenuComponent,
     CartComponent,
     ContactComponent,
-    HomeComponent
+    HomeComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     HttpModule,
     RouterModule.forRoot(routeConfig),
@@ -77,7 +87,9 @@ const routeConfig: Routes = [
     DataTableModule,
     SharedModule,
     DataListModule,
-    GrowlModule
+    GrowlModule,
+    DropdownModule,
+    InputTextModule
   ],
   providers: [CartService, DataService],
   bootstrap: [AppComponent]
