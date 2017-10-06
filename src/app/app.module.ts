@@ -31,6 +31,7 @@ import { HomeComponent } from './components/home/home.component';
 import { CartService } from './services/cart.service';
 import { DataService } from './services/data.service';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { AddFoodComponent } from './components/add-food/add-food.component';
 
 const routeConfig: Routes = [
   {
@@ -72,7 +73,8 @@ const routeConfig: Routes = [
     CartComponent,
     ContactComponent,
     HomeComponent,
-    DashboardComponent
+    DashboardComponent,
+    AddFoodComponent
   ],
   imports: [
     BrowserModule,

@@ -32,12 +32,13 @@ export class CartComponent implements OnInit {
   }
   remove(event) {
     const removeFood: FoodDetail = {
+      id: event.data.id,
       name: event.data.name,
       Description: event.data.Description,
       Price: event.data.Price
     };
     for (let i = 0; i < this.cart.length; ++i) {
-      if (this.cart[i].Description === removeFood.Description) {
+      if (this.cart[i].id === removeFood.id && this.cart[i].name === removeFood.name) {
         this.sum -= this.cart[i].Price;
         this.cart.splice(i, 1);
         break;

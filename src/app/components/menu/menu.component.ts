@@ -32,11 +32,12 @@ export class MenuComponent implements OnInit {
   addFood(event) {
     // console.log(event.data);
     const obj: FoodDetail = {
+      id: event.data.id,
       name: event.data.name,
       Description: event.data.Description,
       Price: event.data.Price
     };
-    console.log(obj);
+    // console.log(obj);
     this.cartService.onUpdate(obj);
     this.growling(obj.name);
   }

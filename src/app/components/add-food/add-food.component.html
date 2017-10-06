@@ -1,0 +1,39 @@
+<div class="container">
+  <h2>Add Food Item</h2>
+  <div class="ui-g ui-fluid">
+    <div class="ui-g-12 ui-md-12">
+      <p-dropdown [options]="menus" [(ngModel)]="selectedMenu"></p-dropdown>
+    </div>
+    <div class="ui-g-12 ui-md-4">
+      <div class="ui-inputgroup">
+        <span class="ui-inputgroup-addon">
+          <i class="fa fa-cutlery"></i>
+        </span>
+        <input type="text" pInputText [(ngModel)]="name" placeholder="Food Item">
+      </div>
+    </div>
+
+    <div class="ui-g-12 ui-md-4">
+      <div class="ui-inputgroup">
+        <span class="ui-inputgroup-addon">
+          <i class="fa fa-inr"></i>
+        </span>
+        <input type="number" pInputText [(ngModel)]="price" placeholder="Price">
+        <span class="ui-inputgroup-addon">.00</span>
+      </div>
+    </div>
+
+    <div class="ui-g-12 ui-md-4">
+      <div class="ui-inputgroup">
+        <span class="ui-inputgroup-addon">
+          <i class="fa fa-info"></i>
+        </span>
+        <input type="text" pInputText [(ngModel)]="description" placeholder="Description">
+      </div>
+    </div>
+    <div class="ui-g-12 ui-md-2">
+      <button pButton type="button" (click)="addFood()" class="ui-button-success" label="Add to DB" icon="fa-check" iconPos="left"></button>
+    </div>
+  </div>
+</div>
+<p-growl [(value)]="msgs" [(life)]="growlTimeout" [style]="{'padding':'20px'}"></p-growl>
