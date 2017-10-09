@@ -19,9 +19,7 @@ export class DeleteFoodComponent implements OnInit {
   menus: SelectItem[];
 
   selectedMenu: string;
-  name: string;
-  price: number;
-  description: string;
+  selectedFood: FoodDetail;
   msgs: Message[] = [];
   growlTimeout = 2000;
 
@@ -35,19 +33,17 @@ export class DeleteFoodComponent implements OnInit {
     this.menus.push({ label: 'Dinner', value: 'dinner' });
   }
 
+  fetchData() {
+
+  }
+
   ngOnInit() {
   }
 
-  addFood() {
-    const obj: FoodDetail = {
-      id: null,
-      name: this.name,
-      Description: this.description,
-      Price: this.price
-    };
-    if (this.dataServices.postFood(this.selectedMenu, obj)) {
-      this.msgs.push({ severity: 'success', summary: 'Added to Database', detail: name + ' is added to Database' });
-    }
+  delFood() {
+    // if (this.dataServices.postFood(this.selectedMenu, obj)) {
+    //   this.msgs.push({ severity: 'success', summary: 'Added to Database', detail: name + ' is added to Database' });
+    // }
 
   }
 
