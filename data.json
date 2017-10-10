@@ -4,67 +4,8 @@
       "id": 1,
       "name": "Dosa",
       "Description": "Breakfast Dosa Description",
-      "Price": 40
-    },
-    {
-      "id": 2,
-      "name": "Idli",
-      "Description": "Breakfast Idli Description",
-      "Price": 20
-    },
-    {
-      "id": 3,
-      "name": "Combo",
-      "Description": "Breakfast Combo Description",
-      "Price": 35
-    },
-    {
-      "id": 4,
-      "name": "Food",
-      "Description": "Food Test",
-      "Price": 100
-    },
-    {
-      "id": 5,
-      "name": "Food",
-      "Description": "Food Test",
-      "Price": 100
-    },
-    {
-      "id": 6,
-      "name": "Food 2",
-      "Description": "Testing Food",
-      "Price": 101
-    },
-    {
-      "id": 7,
-      "name": "Food 2",
-      "Description": "Testing Food",
-      "Price": 101
-    },
-    {
-      "id": 8,
-      "name": "Food 2",
-      "Description": "Testing Food",
-      "Price": 101
-    },
-    {
-      "id": 9,
-      "name": "Food 2",
-      "Description": "Testing Food",
-      "Price": 101
-    },
-    {
-      "id": 10,
-      "name": "Food 2",
-      "Description": "Testing Food",
-      "Price": 101
-    },
-    {
-      "id": 11,
-      "name": "Food 3",
-      "Description": "102",
-      "Price": 102
+      "Price": 40,
+      "Quantity": 1
     }
   ],
   "lunch": [
@@ -72,19 +13,8 @@
       "id": 1,
       "name": "Meal",
       "Description": "Lunch Meal Description",
-      "Price": 40
-    },
-    {
-      "id": 2,
-      "name": "Rice Combo",
-      "Description": "Lunch Rice Combo Description",
-      "Price": 45
-    },
-    {
-      "id": 3,
-      "name": "North Indian Combo",
-      "Description": "Lunch North Indian Combo Description",
-      "Price": 55
+      "Price": 40,
+      "Quantity": 1
     }
   ],
   "dinner": [
@@ -92,19 +22,8 @@
       "id": 1,
       "name": "Dosa",
       "Description": "Dinner Dosa Description",
-      "Price": 40
-    },
-    {
-      "id": 2,
-      "name": "Roti Combo",
-      "Description": "Dinner Roti Combo Description",
-      "Price": 35
-    },
-    {
-      "id": 3,
-      "name": "Meal",
-      "Description": "Dinner Meal Description",
-      "Price": 45
+      "Price": 40,
+      "Quantity": 1
     }
   ],
   "snacks": [
@@ -112,25 +31,8 @@
       "id": 1,
       "name": "Chat",
       "Description": "Snacks Chat Description",
-      "Price": 20
-    },
-    {
-      "id": 2,
-      "name": "Fried",
-      "Description": "Snacks Fried Description",
-      "Price": 10
-    },
-    {
-      "id": 3,
-      "name": "Burger",
-      "Description": "Snacks Burger Description",
-      "Price": 35
-    },
-    {
-      "id": 4,
-      "name": "Food",
-      "Description": "Food Test",
-      "Price": 100
+      "Price": 20,
+      "Quantity": 1
     }
   ],
   "tea": [
@@ -138,19 +40,8 @@
       "id": 1,
       "name": "Tea",
       "Description": "Tea Description",
-      "Price": 10
-    },
-    {
-      "id": 2,
-      "name": "Coffee",
-      "Description": "Coffee Description",
-      "Price": 10
-    },
-    {
-      "id": 3,
-      "name": "Milk",
-      "Description": "Milk Description",
-      "Price": 15
+      "Price": 10,
+      "Quantity": 1
     }
   ]
 }

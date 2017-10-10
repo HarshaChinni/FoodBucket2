@@ -1,3 +1,22 @@
-<p>
-  delete-food works!
-</p>
+<div class="container-fluid">
+  <div class="tableHeader">
+    <h1>Delete Console</h1>
+    <h3>{{dataServices.currentMenu}}</h3>
+  </div>
+  <p-dropdown [options]="menus" (onChange)='selectMenu($event)'></p-dropdown>
+  <p-dataTable [value]="menuData" selectionMode="single" [(selection)]="selectedFood" (onRowSelect)="delFood($event)">
+    <p-column field="name" header="Name"></p-column>
+    <p-column field="Description" header="Description"></p-column>
+    <p-column field="Price" header="Price"></p-column>
+    <p-column header="Delete from Cart">
+      <ng-template pTemplate>
+        <span>
+          <i class="fa fa-minus-circle"></i>
+        </span>
+      </ng-template>
+    </p-column>
+  </p-dataTable>
+  <p-growl [(value)]="msgs" [(life)]="growlTimeout" [style]="{'padding':'20px'}"></p-growl>
+</div>
+<p-confirmDialog header="Confirmation" icon="fa fa-question-circle" width="425"></p-confirmDialog>
+<button type="text" (click)="confirm()" pButton icon="fa-check" label="Confirm"></button>

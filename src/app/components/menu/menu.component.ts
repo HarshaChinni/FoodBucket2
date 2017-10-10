@@ -26,18 +26,15 @@ export class MenuComponent implements OnInit {
       .subscribe(
       (foodlist) => {
         this.menuData = foodlist;
-        console.log(foodlist);
       });
   }
   addFood(event) {
-    // console.log(event.data);
     const obj: FoodDetail = {
       id: event.data.id,
       name: event.data.name,
       Description: event.data.Description,
       Price: event.data.Price
     };
-    // console.log(obj);
     this.cartService.onUpdate(obj);
     this.growling(obj.name);
   }

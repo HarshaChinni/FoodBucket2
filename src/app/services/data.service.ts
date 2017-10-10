@@ -15,7 +15,6 @@ export class DataService {
   }
 
   getFood() {
-    // console.log('got' + this.currentMenu);
     return this.http.get('http://localhost:3000/' + this.currentMenu)
       .map(res => res.json());
   }
@@ -27,4 +26,10 @@ export class DataService {
       }));
   }
 
+  deleteFood(targetId: number) {
+    return (this.http.delete('http://localhost:3000/' + this.currentMenu + '/' + targetId)
+      .subscribe(res => {
+        return true;
+      }));
+  }
 }

@@ -6,6 +6,7 @@ import { SelectItem } from 'primeng/primeng';
 import { ButtonModule } from 'primeng/primeng';
 import { Message } from 'primeng/components/common/api';
 import { GrowlModule } from 'primeng/primeng';
+import { ConfirmDialogModule, ConfirmationService } from 'primeng/primeng';
 
 import { FoodDetail } from '../../interfaces/food-detail';
 
@@ -20,10 +21,12 @@ export class DeleteFoodComponent implements OnInit {
 
   selectedMenu: string;
   selectedFood: FoodDetail;
+  public menuData: FoodDetail[];
+
   msgs: Message[] = [];
   growlTimeout = 2000;
 
-  constructor(private dataServices: DataService) {
+  constructor(public dataServices: DataService, private confirmationService: ConfirmationService) {
     this.menus = [];
     this.menus.push({ label: 'Select Menu', value: null });
     this.menus.push({ label: 'Breakfast', value: 'breakfast' });
@@ -33,18 +36,35 @@ export class DeleteFoodComponent implements OnInit {
     this.menus.push({ label: 'Dinner', value: 'dinner' });
   }
 
-  fetchData() {
-
-  }
-
   ngOnInit() {
   }
 
-  delFood() {
-    // if (this.dataServices.postFood(this.selectedMenu, obj)) {
-    //   this.msgs.push({ severity: 'success', summary: 'Added to Database', detail: name + ' is added to Database' });
-    // }
-
+  selectMenu(event) {
+    this.dataServices.setCurrentMenu(event.value);
+    this.dataServices.getFood()
+      .subscribe(
+      (foodlist) => {
+        this.menuData = foodlist;
+      });
   }
-
+  confirm() {
+    this.confirmationService.confirm({
+      message: 'Are you sure that you want to perform this action?',
+      accept: () => {
+        alert('hit');
+      }
+    });
+  }
+  delFood(event) {
+    this.confirmationService.confirm({
+      message: 'Are you sure that you want to delete ' + event.data.name + ' ?',
+      accept: () => {
+        if (this.dataServices.deleteFood(event.data.id)) {
+          this.msgs.push({ severity: 'success', summary: 'Deleted from Database', detail: event.data.name + ' is deleted from Database' });
+        } else {
+          this.msgs.push({ severity: 'error', summary: 'Unable to Delete', detail: event.data.name + ' is Unable to delete' });
+        }
+      }
+    });
+  }
 }

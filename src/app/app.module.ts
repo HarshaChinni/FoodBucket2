@@ -3,8 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
-import { HttpModule } from '@angular/http';
+import { HttpModule, Http, RequestOptions } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { provideAuth, AuthHttp, AuthConfig } from 'angular2-jwt';
+import { tokenNotExpired } from 'angular2-jwt';
 
 // Prime ng modules
 import { ToolbarModule } from 'primeng/primeng';
@@ -18,6 +20,12 @@ import { Footer } from 'primeng/primeng';
 import { GrowlModule } from 'primeng/primeng';
 import { DropdownModule } from 'primeng/primeng';
 import { InputTextModule } from 'primeng/primeng';
+import { ConfirmDialogModule, ConfirmationService } from 'primeng/primeng';
+
+// app services
+import { CartService } from './services/cart.service';
+import { DataService } from './services/data.service';
+import { Auth0Service } from './services/auth0.service';
 
 // app components
 import { AppComponent } from './app.component';
@@ -26,13 +34,10 @@ import { MenuComponent } from './components/menu/menu.component';
 import { CartComponent } from './components/cart/cart.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { HomeComponent } from './components/home/home.component';
-
-// app services
-import { CartService } from './services/cart.service';
-import { DataService } from './services/data.service';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AddFoodComponent } from './components/add-food/add-food.component';
 import { DeleteFoodComponent } from './components/delete-food/delete-food.component';
+import { ManageFoodComponent } from './components/manage-food/manage-food.component';
 
 const routeConfig: Routes = [
   {
@@ -45,7 +50,17 @@ const routeConfig: Routes = [
   },
   {
     path: 'dashboard',
-    component: DashboardComponent
+    component: DashboardComponent,
+    children: [
+      {
+        path: 'addFood',
+        component: AddFoodComponent
+      },
+      {
+        path: 'delFood',
+        component: DeleteFoodComponent
+      }
+    ]
   },
   {
     path: 'contact',
@@ -63,8 +78,13 @@ const routeConfig: Routes = [
     path: 'menu',
     component: MenuComponent
   }
-
 ];
+
+export function authHttpServiceFactory(http: Http, options: RequestOptions) {
+  return new AuthHttp(new AuthConfig({
+    tokenName: 'id_token'
+  }), http, options);
+}
 
 @NgModule({
   declarations: [
@@ -76,7 +96,8 @@ const routeConfig: Routes = [
     HomeComponent,
     DashboardComponent,
     AddFoodComponent,
-    DeleteFoodComponent
+    DeleteFoodComponent,
+    ManageFoodComponent
   ],
   imports: [
     BrowserModule,
@@ -93,9 +114,17 @@ const routeConfig: Routes = [
     DataListModule,
     GrowlModule,
     DropdownModule,
-    InputTextModule
+    InputTextModule,
+    ConfirmDialogModule
   ],
-  providers: [CartService, DataService],
+  providers: [{
+    provide: AuthHttp,
+    useFactory: authHttpServiceFactory,
+    deps: [Http, RequestOptions]
+  },
+    CartService, DataService, ConfirmationService, Auth0Service],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
