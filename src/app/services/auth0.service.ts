@@ -1,30 +1,38 @@
 import { Injectable } from '@angular/core';
 import { tokenNotExpired } from 'angular2-jwt';
+import { Router } from '@angular/router';
 
 declare var Auth0Lock: any;
 
 @Injectable()
 export class Auth0Service {
 
-  lock = new Auth0Lock('uUgZOgGmcBw6yDXCOL1yssPlxHuTFoy6', 'redvirus.auth0.com', {});
+  lock = new Auth0Lock('uUgZOgGmcBw6yDXCOL1yssPlxHuTFoy6', 'redvirus.auth0.com', {
+    languageDictionary: {
+      title: 'Login to Food Bucket'
+    },
+    theme: {
+      logo: '../../favicon.ico',
+      primaryColor: '#ffffff'
+    }
+  });
 
-  constructor() {
+  constructor(private router: Router) {
     this.lock.on('authenticated', authResult => {
       console.log(authResult);
-      localStorage.setItem('id_token', authResult.idToken);
+      localStorage.setItem('idToken', authResult.idToken);
     });
   }
 
   login() {
-    // console.log(this.lock);
     this.lock.show();
+    this.router.navigate(['/dashboard']);
   }
   isAuthenticated(): boolean {
     return tokenNotExpired('idToken');
-    // return true;
   }
   logout() {
-    localStorage.removeItem('id_token');
+    localStorage.removeItem('idToken');
   }
 }
 

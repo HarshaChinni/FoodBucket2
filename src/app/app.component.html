@@ -12,8 +12,8 @@
       <button pButton type="button" icon="fa-home" label='Home' routerLink="/home"></button>
       <button pButton type="button" icon="fa-handshake-o" label='Contact us'></button>
       <button pButton type="button" icon="fa-shopping-cart" label='Cart ({{cartService.cartCount}})' routerLink="/cart"></button>
-      <button pButton type="button" icon="fa-sign-in" label='Login' (click)="authService.login();"></button>
-      <button pButton type="button" icon="fa-sign-out" label='Logout' (click)="authService.logout();"></button>
+      <button pButton type="button" icon="fa-sign-in" label='Login' (click)="authService.login();" *ngIf="!authService.isAuthenticated()"></button>
+      <button pButton type="button" icon="fa-sign-out" label='Logout' (click)="authService.logout();" *ngIf="authService.isAuthenticated()"></button>
 
     </div>
   </p-toolbar>
