@@ -12,14 +12,12 @@ export class Auth0Service {
       title: 'Login to Food Bucket'
     },
     theme: {
-      logo: '../../favicon.ico',
-      primaryColor: '#ffffff'
+      logo: '../../favicon.ico'
     }
   });
 
   constructor(private router: Router) {
     this.lock.on('authenticated', authResult => {
-      console.log(authResult);
       localStorage.setItem('idToken', authResult.idToken);
     });
   }
@@ -35,4 +33,3 @@ export class Auth0Service {
     localStorage.removeItem('idToken');
   }
 }
-

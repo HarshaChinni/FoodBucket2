@@ -26,6 +26,7 @@ import { ConfirmDialogModule, ConfirmationService } from 'primeng/primeng';
 import { CartService } from './services/cart.service';
 import { DataService } from './services/data.service';
 import { Auth0Service } from './services/auth0.service';
+import { AuthGuard } from './services/auth.guard';
 
 // app components
 import { AppComponent } from './app.component';
@@ -42,7 +43,8 @@ import { ManageFoodComponent } from './components/manage-food/manage-food.compon
 const routeConfig: Routes = [
   {
     path: '',
-    component: HomeComponent
+    redirectTo: 'home',
+    pathMatch: 'full'
   },
   {
     path: 'home',
@@ -51,6 +53,7 @@ const routeConfig: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent,
+    canActivate: [AuthGuard],
     children: [
       {
         path: 'addFood',
@@ -122,7 +125,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     useFactory: authHttpServiceFactory,
     deps: [Http, RequestOptions]
   },
-    CartService, DataService, ConfirmationService, Auth0Service],
+    CartService, DataService, ConfirmationService, Auth0Service, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

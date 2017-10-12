@@ -9,6 +9,6 @@
 body {
   background-image: url('./images/background.jpg');
   /* background-color: lightgrey; */
-  background-size: auto;
+  background-size: auto center center;
   background-repeat: no-repeat;
 }
