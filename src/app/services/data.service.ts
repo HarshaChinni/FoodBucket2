@@ -15,8 +15,8 @@ export class DataService {
   }
 
   getFood() {
-    return this.http.get('http://localhost:3000/' + this.currentMenu)
-      .map(res => res.json());
+    return (this.http.get('http://localhost:3000/' + this.currentMenu)
+      .map(res => res.json()));
   }
 
   postFood(target: string, obj: FoodDetail) {
@@ -31,5 +31,10 @@ export class DataService {
       .subscribe(res => {
         return true;
       }));
+  }
+
+  getUser() {
+    return (this.http.get('https://redvirus.auth0.com/userinfo')
+      .map(res => res.json()));
   }
 }
