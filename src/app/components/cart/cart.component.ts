@@ -33,6 +33,7 @@ export class CartComponent implements OnInit {
   remove(event) {
     const removeFood: FoodDetail = {
       id: event.data.id,
+      menu: event.data.menu,
       name: event.data.name,
       Description: event.data.Description,
       Price: event.data.Price

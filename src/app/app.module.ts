@@ -27,7 +27,7 @@ import { CartService } from './services/cart.service';
 import { DataService } from './services/data.service';
 import { Auth0Service } from './services/auth0.service';
 import { AuthGuard } from './services/auth.guard';
-
+import { Common } from './interfaces/common';
 // app components
 import { AppComponent } from './app.component';
 import { NavComponent } from './components/nav/nav.component';
@@ -125,7 +125,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     useFactory: authHttpServiceFactory,
     deps: [Http, RequestOptions]
   },
-    CartService, DataService, ConfirmationService, Auth0Service, AuthGuard],
+    CartService, DataService, ConfirmationService, Auth0Service, AuthGuard, Common],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

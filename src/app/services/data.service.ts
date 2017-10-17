@@ -2,35 +2,45 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
+import { Common } from '../interfaces/common';
 import { FoodDetail } from '../interfaces/food-detail';
-
+import { CartDetail } from '../interfaces/cart-detail';
 @Injectable()
 export class DataService {
   currentMenu = 'breakfast';
 
-  constructor(public http: Http) { }
+  constructor(public http: Http, private common: Common) { }
 
   setCurrentMenu(selectMenu) {
     this.currentMenu = selectMenu;
   }
 
   getFood() {
-    return (this.http.get('http://localhost:3000/' + this.currentMenu)
+    return (this.http.get(this.common.appUrl + this.currentMenu)
       .map(res => res.json()));
   }
 
   postFood(target: string, obj: FoodDetail) {
-    return (this.http.post('http://localhost:3000/' + target, obj)
+    return (this.http.post(this.common.appUrl + target, obj)
       .subscribe(res => {
         return true;
       }));
   }
 
   deleteFood(targetId: number) {
-    return (this.http.delete('http://localhost:3000/' + this.currentMenu + '/' + targetId)
+    return (this.http.delete(this.common.appUrl + this.currentMenu + '/' + targetId)
       .subscribe(res => {
         return true;
       }));
+  }
+
+  postSale(sales: CartDetail) {
+    return (this.http.post(this.common.appUrl + '/sales', sales));
+  }
+
+  getSale() {
+    return (this.http.get(this.common.appUrl + '/sales')
+      .map(res => res.json()));
   }
 
   getUser() {

@@ -2,6 +2,7 @@
   "breakfast": [
     {
       "id": 1,
+      "menu": "breakfast",
       "name": "Dosa",
       "Description": "Breakfast Dosa Description",
       "Price": 40,
@@ -11,6 +12,7 @@
   "lunch": [
     {
       "id": 1,
+      "menu": "lunch",
       "name": "Meal",
       "Description": "Lunch Meal Description",
       "Price": 40,
@@ -20,6 +22,7 @@
   "dinner": [
     {
       "id": 1,
+      "menu": "dinner",
       "name": "Dosa",
       "Description": "Dinner Dosa Description",
       "Price": 40,
@@ -29,6 +32,7 @@
   "snacks": [
     {
       "id": 1,
+      "menu": "snacks",
       "name": "Chat",
       "Description": "Snacks Chat Description",
       "Price": 20,
@@ -38,10 +42,22 @@
   "tea": [
     {
       "id": 1,
+      "menu": "tea",
       "name": "Tea",
       "Description": "Tea Description",
       "Price": 10,
       "Quantity": 1
+    }
+  ],
+  "sales": [
+    {
+      "id": 1,
+      "date": null,
+      "breakfast": 0,
+      "lunch": 0,
+      "snacks": 0,
+      "tea": 0,
+      "dinner": 0
     }
   ]
 }

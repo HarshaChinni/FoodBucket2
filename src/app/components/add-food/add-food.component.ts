@@ -41,6 +41,7 @@ export class AddFoodComponent implements OnInit {
   addFood() {
     const obj: FoodDetail = {
       id: null,
+      menu: this.selectedMenu,
       name: this.name,
       Description: this.description,
       Price: this.price

@@ -36,5 +36,6 @@ export class Auth0Service {
   }
   logout() {
     localStorage.removeItem('idToken');
+    this.router.navigate(['/home']);
   }
 }
