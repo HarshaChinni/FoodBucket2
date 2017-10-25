@@ -15,19 +15,19 @@ export class DataService {
   }
 
   getFood() {
-    return (this.http.get('http://localhost:3000/' + this.currentMenu)
+    return (this.http.get('http://192.168.1.2:3000/' + this.currentMenu)
       .map(res => res.json()));
   }
 
   postFood(target: string, obj: FoodDetail) {
-    return (this.http.post('http://localhost:3000/' + target, obj)
+    return (this.http.post('http://192.168.1.2:3000/' + target, obj)
       .subscribe(res => {
         return true;
       }));
   }
 
   deleteFood(targetId: number) {
-    return (this.http.delete('http://localhost:3000/' + this.currentMenu + '/' + targetId)
+    return (this.http.delete('http://192.168.1.2:3000/' + this.currentMenu + '/' + targetId)
       .subscribe(res => {
         return true;
       }));

@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container">
   <div class="tableHeader">
     <h1>Delete Console</h1>
     <h3>{{dataServices.currentMenu}}</h3>
@@ -17,6 +17,6 @@
     </p-column>
   </p-dataTable>
   <p-growl [(value)]="msgs" [(life)]="growlTimeout" [style]="{'padding':'20px'}"></p-growl>
+  <hr>
 </div>
 <p-confirmDialog header="Confirmation" icon="fa fa-question-circle" width="425"></p-confirmDialog>
-<button type="text" (click)="confirm()" pButton icon="fa-check" label="Confirm"></button>
