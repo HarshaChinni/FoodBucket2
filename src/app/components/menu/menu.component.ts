@@ -31,6 +31,7 @@ export class MenuComponent implements OnInit {
   addFood(event) {
     const obj: FoodDetail = {
       id: event.data.id,
+      menu: event.data.menu,
       name: event.data.name,
       Description: event.data.Description,
       Price: event.data.Price

@@ -7,6 +7,7 @@ import { HttpModule, Http, RequestOptions } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { provideAuth, AuthHttp, AuthConfig } from 'angular2-jwt';
 import { tokenNotExpired } from 'angular2-jwt';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 // Prime ng modules
 import { ToolbarModule } from 'primeng/primeng';
@@ -27,6 +28,7 @@ import { CartService } from './services/cart.service';
 import { DataService } from './services/data.service';
 import { Auth0Service } from './services/auth0.service';
 import { AuthGuard } from './services/auth.guard';
+import { Common } from './interfaces/common';
 
 // app components
 import { AppComponent } from './app.component';
@@ -84,9 +86,13 @@ const routeConfig: Routes = [
 ];
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
-  return new AuthHttp(new AuthConfig({
-    tokenName: 'id_token'
-  }), http, options);
+  return new AuthHttp(
+    new AuthConfig({
+      tokenName: 'id_token'
+    }),
+    http,
+    options
+  );
 }
 
 @NgModule({
@@ -120,14 +126,20 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     InputTextModule,
     ConfirmDialogModule
   ],
-  providers: [{
-    provide: AuthHttp,
-    useFactory: authHttpServiceFactory,
-    deps: [Http, RequestOptions]
-  },
-    CartService, DataService, ConfirmationService, Auth0Service, AuthGuard],
-  bootstrap: [AppComponent]
+  providers: [
+    {
+      provide: AuthHttp,
+      useFactory: authHttpServiceFactory,
+      deps: [Http, RequestOptions]
+    },
+    CartService,
+    DataService,
+    ConfirmationService,
+    Auth0Service,
+    AuthGuard,
+    Common
+  ],
+  bootstrap: [AppComponent],
+  schemas: [NO_ERRORS_SCHEMA]
 })
-export class AppModule { }
-
-
+export class AppModule {}

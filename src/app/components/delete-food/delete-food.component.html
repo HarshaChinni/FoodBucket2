@@ -4,6 +4,8 @@
     <h3>{{dataServices.currentMenu}}</h3>
   </div>
   <p-dropdown [options]="menus" (onChange)='selectMenu($event)'></p-dropdown>
+  <br>
+  <br>
   <p-dataTable [value]="menuData" selectionMode="single" [(selection)]="selectedFood" (onRowSelect)="delFood($event)">
     <p-column field="name" header="Name"></p-column>
     <p-column field="Description" header="Description"></p-column>
@@ -16,7 +18,7 @@
       </ng-template>
     </p-column>
   </p-dataTable>
-  <p-growl [(value)]="msgs" [(life)]="growlTimeout" [style]="{'padding':'20px'}"></p-growl>
   <hr>
 </div>
+<p-growl [(value)]="msgs" [(life)]="growlTimeout" [style]="{'padding':'20px'}"></p-growl>
 <p-confirmDialog header="Confirmation" icon="fa fa-question-circle" width="425"></p-confirmDialog>

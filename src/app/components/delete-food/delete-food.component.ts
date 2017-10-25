@@ -28,7 +28,6 @@ export class DeleteFoodComponent implements OnInit {
 
   constructor(public dataServices: DataService, private confirmationService: ConfirmationService) {
     this.menus = [];
-    this.menus.push({ label: 'Select Menu', value: null });
     this.menus.push({ label: 'Breakfast', value: 'breakfast' });
     this.menus.push({ label: 'Lunch', value: 'lunch' });
     this.menus.push({ label: 'Snacks', value: 'snacks' });

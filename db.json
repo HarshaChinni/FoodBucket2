@@ -1,19 +1,55 @@
 {
-  "posts": [
+  "food": [
     {
       "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "menu": "breakfast",
+      "name": "Dosa",
+      "Description": "Breakfast Dosa Description",
+      "Price": 40,
+      "Quantity": 1
+    },
+    {
+      "id": 2,
+      "menu": "lunch",
+      "name": "Meal",
+      "Description": "Lunch Meal Description",
+      "Price": 40,
+      "Quantity": 1
+    },
+    {
+      "id": 3,
+      "menu": "dinner",
+      "name": "Dosa",
+      "Description": "Dinner Dosa Description",
+      "Price": 40,
+      "Quantity": 1
+    },
+    {
+      "id": 4,
+      "menu": "snacks",
+      "name": "Chat",
+      "Description": "Snacks Chat Description",
+      "Price": 20,
+      "Quantity": 1
+    },
+    {
+      "id": 5,
+      "menu": "tea",
+      "name": "Tea",
+      "Description": "Tea Description",
+      "Price": 10,
+      "Quantity": 1
     }
   ],
-  "comments": [
+  "sales": [
     {
       "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "date": null,
+      "breakfast": 0,
+      "lunch": 0,
+      "snacks": 0,
+      "tea": 0,
+      "dinner": 0
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }
