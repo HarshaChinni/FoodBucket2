@@ -32,7 +32,7 @@ describe('HomeComponent', () => {
     async(() => {
       const compiled = fixture.debugElement.nativeElement;
       expect(compiled.querySelector('h1').textContent).toContain(
-        'Welcome to app!'
+        'Welcome to Food Bucket'
       );
     })
   );

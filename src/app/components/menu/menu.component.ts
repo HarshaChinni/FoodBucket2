@@ -19,14 +19,15 @@ export class MenuComponent implements OnInit {
   msgs: Message[] = [];
   growlTimeout = 2000;
 
-  constructor(public dataService: DataService, private cartService: CartService) { }
+  constructor(
+    public dataService: DataService,
+    private cartService: CartService
+  ) {}
 
   ngOnInit() {
-    this.dataService.getFood()
-      .subscribe(
-      (foodlist) => {
-        this.menuData = foodlist;
-      });
+    this.dataService.getFood().subscribe(foodlist => {
+      this.menuData = foodlist;
+    });
   }
   addFood(event) {
     const obj: FoodDetail = {
@@ -40,6 +41,10 @@ export class MenuComponent implements OnInit {
     this.growling(obj.name);
   }
   growling(name) {
-    this.msgs.push({ severity: 'success', summary: 'Added to Cart', detail: name + ' is added to cart' });
+    this.msgs.push({
+      severity: 'success',
+      summary: 'Added to Cart',
+      detail: name + ' is added to cart'
+    });
   }
 }
