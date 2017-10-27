@@ -16,7 +16,6 @@ import { FoodDetail } from '../../interfaces/food-detail';
   styleUrls: ['./delete-food.component.css']
 })
 export class DeleteFoodComponent implements OnInit {
-
   menus: SelectItem[];
 
   selectedMenu: string;
@@ -26,7 +25,10 @@ export class DeleteFoodComponent implements OnInit {
   msgs: Message[] = [];
   growlTimeout = 2000;
 
-  constructor(public dataServices: DataService, private confirmationService: ConfirmationService) {
+  constructor(
+    public dataServices: DataService,
+    private confirmationService: ConfirmationService
+  ) {
     this.menus = [];
     this.menus.push({ label: 'Breakfast', value: 'breakfast' });
     this.menus.push({ label: 'Lunch', value: 'lunch' });
@@ -35,33 +37,31 @@ export class DeleteFoodComponent implements OnInit {
     this.menus.push({ label: 'Dinner', value: 'dinner' });
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   selectMenu(event) {
     this.dataServices.setCurrentMenu(event.value);
-    this.dataServices.getFood()
-      .subscribe(
-      (foodlist) => {
-        this.menuData = foodlist;
-      });
-  }
-  confirm() {
-    this.confirmationService.confirm({
-      message: 'Are you sure that you want to perform this action?',
-      accept: () => {
-        alert('hit');
-      }
+    this.dataServices.getFood().subscribe(foodlist => {
+      this.menuData = foodlist;
     });
   }
+
   delFood(event) {
     this.confirmationService.confirm({
       message: 'Are you sure that you want to delete ' + event.data.name + ' ?',
       accept: () => {
         if (this.dataServices.deleteFood(event.data.id)) {
-          this.msgs.push({ severity: 'success', summary: 'Deleted from Database', detail: event.data.name + ' is deleted from Database' });
+          this.msgs.push({
+            severity: 'success',
+            summary: 'Deleted from Database',
+            detail: event.data.name + ' is deleted from Database'
+          });
         } else {
-          this.msgs.push({ severity: 'error', summary: 'Unable to Delete', detail: event.data.name + ' is Unable to delete' });
+          this.msgs.push({
+            severity: 'error',
+            summary: 'Unable to Delete',
+            detail: event.data.name + ' is Unable to delete'
+          });
         }
       }
     });
