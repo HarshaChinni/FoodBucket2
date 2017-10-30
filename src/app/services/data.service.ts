@@ -41,11 +41,11 @@ export class DataService {
   }
 
   postSale(sales: CartDetail) {
-    return this.http.post(this.common.appUrl + '/sales', sales);
+    return this.http.post(this.common.appUrl + 'sales', sales);
   }
 
   getSale() {
-    return this.http.get(this.common.appUrl + '/sales').map(res => res.json());
+    return this.http.get(this.common.appUrl + 'sales').map(res => res.json());
   }
 
   getUser() {

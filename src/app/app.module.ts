@@ -22,6 +22,7 @@ import { GrowlModule } from 'primeng/primeng';
 import { DropdownModule } from 'primeng/primeng';
 import { InputTextModule } from 'primeng/primeng';
 import { ConfirmDialogModule, ConfirmationService } from 'primeng/primeng';
+import { ChartModule } from 'primeng/primeng';
 
 // app services
 import { CartService } from './services/cart.service';
@@ -124,7 +125,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     GrowlModule,
     DropdownModule,
     InputTextModule,
-    ConfirmDialogModule
+    ConfirmDialogModule,
+    ChartModule
   ],
   providers: [
     {
