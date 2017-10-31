@@ -5,6 +5,7 @@ import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { DataService } from '../../services/data.service';
 import { Http, ConnectionBackend, RequestOptions } from '@angular/http';
 import { Router } from '@angular/router';
+import { Common } from '../../interfaces/common';
 
 describe('Component: Add food', () => {
   let component: AddFoodComponent;
@@ -15,6 +16,9 @@ describe('Component: Add food', () => {
   const mockRequest = {
     navigate: jasmine.createSpy('RequestOptions')
   };
+  const mockRouter = {
+    navigate: jasmine.createSpy('navigate')
+  };
 
   beforeEach(
     async(() => {
@@ -24,6 +28,7 @@ describe('Component: Add food', () => {
           Http,
           ConnectionBackend,
           Router,
+          Common,
           { provide: RequestOptions, useValue: mockRequest },
           { provide: Router, useValue: mockRouter }
         ],
