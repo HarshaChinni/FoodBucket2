@@ -23,6 +23,7 @@ import { DropdownModule } from 'primeng/primeng';
 import { InputTextModule } from 'primeng/primeng';
 import { ConfirmDialogModule, ConfirmationService } from 'primeng/primeng';
 import { ChartModule } from 'primeng/primeng';
+import { TabViewModule } from 'primeng/primeng';
 
 // app services
 import { CartService } from './services/cart.service';
@@ -65,6 +66,10 @@ const routeConfig: Routes = [
       {
         path: 'delFood',
         component: DeleteFoodComponent
+      },
+      {
+        path: 'manage',
+        component: ManageFoodComponent
       }
     ]
   },
@@ -126,7 +131,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     DropdownModule,
     InputTextModule,
     ConfirmDialogModule,
-    ChartModule
+    ChartModule,
+    TabViewModule
   ],
   providers: [
     {

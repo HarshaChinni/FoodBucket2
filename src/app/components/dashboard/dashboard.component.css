@@ -1,4 +1,7 @@
+/* .container { */
+/* background-color: rgba(255, 255, 255, 0.95); */
+/* color: black; */
+/* } */
 .container {
-  background-color: rgba(255, 255, 255, 0.95);
-  /* color: black; */
+  opacity: 0.95;
 }

@@ -7,6 +7,13 @@
       "Description": "Breakfast Dosa Description",
       "Price": 40,
       "Quantity": 1
+    },
+    {
+      "id": 2,
+      "menu": "breakfast",
+      "name": "Idli",
+      "Description": "Idli Combo",
+      "Price": 20
     }
   ],
   "lunch": [
@@ -53,44 +60,44 @@
     {
       "id": 1,
       "Category": "store",
-      "Onion": 10,
-      "Potato": 20,
-      "Tomato": 10,
-      "Rice": 20,
+      "Onion": 2,
+      "Potato": 4,
+      "Tomato": 6,
+      "Rice": 8,
       "Wheat": 10,
-      "Bread": 20,
-      "Spices": 10,
-      "Milk": 20,
-      "Tea": 10,
+      "Bread": 12,
+      "Spices": 14,
+      "Milk": 16,
+      "Tea": 18,
       "Coffee": 20
     },
     {
       "id": 2,
       "Category": "used",
-      "Onion": 0,
-      "Potato": 0,
-      "Tomato": 20,
-      "Rice": 0,
-      "Wheat": 0,
-      "Bread": 0,
-      "Spices": 0,
-      "Milk": 0,
-      "Tea": 0,
-      "Coffee": 0
+      "Onion": 20,
+      "Potato": 18,
+      "Tomato": 16,
+      "Rice": 14,
+      "Wheat": 12,
+      "Bread": 10,
+      "Spices": 8,
+      "Milk": 6,
+      "Tea": 4,
+      "Coffee": 2
     },
     {
       "id": 3,
-      "Category": "left",
-      "Onion": 0,
-      "Potato": 0,
-      "Tomato": 30,
-      "Rice": 0,
-      "Wheat": 0,
-      "Bread": 0,
-      "Spices": 0,
-      "Milk": 0,
-      "Tea": 0,
-      "Coffee": 0
+      "Category": "requirement",
+      "Onion": 1,
+      "Potato": 3,
+      "Tomato": 5,
+      "Rice": 7,
+      "Wheat": 9,
+      "Bread": 11,
+      "Spices": 13,
+      "Milk": 15,
+      "Tea": 17,
+      "Coffee": 19
     }
   ]
 }
