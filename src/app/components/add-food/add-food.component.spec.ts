@@ -4,11 +4,14 @@ import { AddFoodComponent } from './add-food.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { DataService } from '../../services/data.service';
 import { Http, ConnectionBackend, RequestOptions } from '@angular/http';
+import { Router } from '@angular/router';
 
-describe('Component: Add food to Database', () => {
+describe('Component: Add food', () => {
   let component: AddFoodComponent;
   let fixture: ComponentFixture<AddFoodComponent>;
-
+  const mockRouter = {
+    navigate: jasmine.createSpy('navigate')
+  };
   const mockRequest = {
     navigate: jasmine.createSpy('RequestOptions')
   };
@@ -16,7 +19,14 @@ describe('Component: Add food to Database', () => {
   beforeEach(
     async(() => {
       TestBed.configureTestingModule({
-        providers: [DataService, Http, ConnectionBackend, RequestOptions],
+        providers: [
+          DataService,
+          Http,
+          ConnectionBackend,
+          Router,
+          { provide: RequestOptions, useValue: mockRequest },
+          { provide: Router, useValue: mockRouter }
+        ],
         declarations: [AddFoodComponent],
         schemas: [NO_ERRORS_SCHEMA]
       }).compileComponents();
