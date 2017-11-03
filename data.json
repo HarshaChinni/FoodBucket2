@@ -7,13 +7,6 @@
       "Description": "Breakfast Dosa Description",
       "Price": 40,
       "Quantity": 1
-    },
-    {
-      "id": 2,
-      "menu": "breakfast",
-      "name": "Idli",
-      "Description": "Idli Combo",
-      "Price": 20
     }
   ],
   "lunch": [

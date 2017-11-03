@@ -24,14 +24,12 @@ export class Auth0Service {
   constructor(private router: Router, private data: DataService) {
     this.lock.on('authenticated', authResult => {
       localStorage.setItem('idToken', authResult.idToken);
-      // console.log(authResult);
-      console.log(this.data.getUser());
     });
   }
 
   login() {
-    this.lock.show();
     this.router.navigate(['/dashboard']);
+    this.lock.show();
   }
   isAuthenticated(): boolean {
     return tokenNotExpired('idToken');
