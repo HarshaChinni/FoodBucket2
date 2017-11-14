@@ -3,6 +3,7 @@ import { DataService } from '../../services/data.service';
 import { ButtonModule } from 'primeng/primeng';
 import { ChartModule } from 'primeng/primeng';
 import { TabViewModule } from 'primeng/primeng';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,7 +11,9 @@ import { TabViewModule } from 'primeng/primeng';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  constructor(private dataService: DataService) {}
+  constructor(private router: Router, private dataService: DataService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.router.navigate(['/dashboard/manage']);
+  }
 }
