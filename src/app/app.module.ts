@@ -6,6 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HttpModule, Http, RequestOptions } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { provideAuth, AuthHttp, AuthConfig } from 'angular2-jwt';
+
 import { tokenNotExpired } from 'angular2-jwt';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 
